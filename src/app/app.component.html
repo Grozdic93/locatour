@@ -3,27 +3,40 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi&#64;ionicframework.com</ion-note>
+          <ion-list-header>LocaTour</ion-list-header>
+          <ion-note>hi User!</ion-note>
+          <div><app-theme-toggle></app-theme-toggle></div>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item (click)="toggleMusic()" lines="none" detail="false">
+              <ion-icon
+                aria-hidden="true"
+                slot="start"
+                [ios]="isMusicPlaying ? 'musical-notes-outline' : 'volume-mute-outline'"
+                [md]="isMusicPlaying ? 'musical-notes-sharp' : 'volume-mute-sharp'"
+              ></ion-icon>
+              <ion-label>{{ isMusicPlaying ? 'Mute Music' : 'Play Music' }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
 
           @for (p of appPages; track p; let i = $index) {
-            <ion-menu-toggle auto-hide="false">
-              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-                <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-          }
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          @for (label of labels; track label) {
-            <ion-item lines="none">
-              <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-              <ion-label>{{ label }}</ion-label>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item
+              routerDirection="root"
+              [routerLink]="[p.url]"
+              lines="none"
+              detail="false"
+              routerLinkActive="selected"
+            >
+              <ion-icon
+                aria-hidden="true"
+                slot="start"
+                [ios]="p.icon + '-outline'"
+                [md]="p.icon + '-sharp'"
+              ></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+          </ion-menu-toggle>
           }
         </ion-list>
       </ion-content>

@@ -1,0 +1,33 @@
+ion-button[color="dark"] {
+  text-transform: initial;
+}
+ion-content {
+  --background: transparent;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+ion-card {
+  background: transparent !important;
+  pointer-events: auto;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+
+img {
+  height: 50px;
+}
+@media (width < 768px) {
+  img {
+    padding: 0.5rem;
+  }
+  ion-title {
+    padding-inline: 1rem;
+  }
+}

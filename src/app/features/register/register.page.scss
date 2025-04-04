@@ -1,0 +1,46 @@
+ion-button[color="dark"] {
+    text-transform: initial;
+  }
+ion-content{
+    --background: var(--ion-color-tertiary);
+}
+ion-button{
+    margin: 10px;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+ }
+ ion-content {
+    --background: transparent;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  ion-card {
+    background: transparent !important;
+    pointer-events: auto;
+  }
+ .flex {
+    display: flex;
+    align-items: end;
+  }
+  img {
+    height: 50px;
+  }
+.title-sufix{
+    font-family: "Engagement", cursive;
+    font-size: 2rem;
+    color: #D4AF37;
+}
+
+  @media (width < 768px) {
+    img {
+      padding: 0.5rem;
+    }
+    ion-title {
+      padding-inline: 1rem;
+    }
+  }

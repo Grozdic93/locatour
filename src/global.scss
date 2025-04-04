@@ -9,6 +9,10 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+// FONTS == 
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&family=Engagement&family=Italianno&family=Updock&display=swap');
+
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -33,5 +37,321 @@
  */
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.class.css"; 
+/* @import '@ionic/angular/css/palettes/dark.system.css'; */
+
+/* (Optional) This is added to prevent the flashing that happens when toggling between palettes */
+ion-item {
+  --transition: none;
+}
+
+/* Canvas theme handling */
+:root {
+  --canvas-background: rgba(27, 83, 179, 0.4);
+}
+
+.ion-palette-dark {
+  --canvas-background: rgba(0, 0, 0, 0.1);
+}
+
+.compass-container {
+  background: var(--canvas-background);
+  transition: background-color 0.3s ease;
+}
+
+@layer layout, reset;
+// LAYOUT ============
+
+@layer layout {
+    .h-100{
+        height: 100%;
+    }
+    .w-100{
+        width: 100%;
+    }
+
+    .center-grid{
+        display: grid;
+        place-content: center;
+    }
+    .center-flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .flow > * + * {
+      margin-block-start: var(--flow-space, 1em);
+    }
+  
+    .grid-flow {
+      display: grid;
+      gap: var(--grid-flow-gap, 1rem);
+      justify-items: start;
+  
+      > * {
+        margin: 0;
+      }
+    }
+  
+    .grid-auto-fit {
+      --grid-auto-fit-min-column-size: 200px;
+      --grid-auto-fit-gap: 1rem;
+  
+      display: grid;
+      gap: var(--grid-auto-fit-gap);
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(var(--grid-auto-fit-min-column-size), 100%), 1fr)
+      );
+    }
+  
+    .flex-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--flex-group-row-gap, 0.5rem) var(--flex-group-column-gap, 1rem);
+      align-items: var(--flex-group-alignment, center);
+      justify-content: var(--flex-group-justifcation, start);
+    }
+  
+    .primary-layout > *,
+    .full-width > * {
+      grid-column: content;
+    }
+    .primary-layout,
+    .full-width {
+      --minimum-content-padding: 2rem;
+  
+      /** TRACK WIDTHS **/
+      --full-max-width: 1fr;
+      --popout-max-width: 1200px;
+      --content-max-width: 1000px;
+      --narrow-max-width: 840px;
+  
+      /** TRACK SIZES **/
+      --full: minmax(var(--minimum-content-padding), 1fr);
+      --popout: minmax(
+        0,
+        calc((var(--popout-max-width) - var(--content-max-width)) * 0.5)
+      );
+      --content: minmax(
+        0,
+        calc((var(--content-max-width) - var(--narrow-max-width)) * 0.5)
+      );
+      --narrow: min(
+        var(--narrow-max-width),
+        100% - var(--minimum-content-padding) * 2
+      );
+  
+      display: grid;
+      grid-template-columns:
+        [full-start]
+        var(--full)
+        [popout-start]
+        var(--popout)
+        [content-start]
+        var(--content)
+        [narrow-start]
+        var(--narrow)
+        [narrow-end]
+        var(--content)
+        [content-end]
+        var(--popout)
+        [popout-end]
+        var(--full)
+        [full-end];
+    }
+  
+    /** CLASSES **/
+    .full {
+      grid-column: full;
+    }
+    .full-start {
+      grid-column-start: full-start;
+    }
+    .full-end {
+      grid-column-end: full-end;
+    }
+  
+    .popout {
+      grid-column: popout;
+    }
+    .popout-start {
+      grid-column-start: popout-start;
+    }
+    .popout-end {
+      grid-column-end: popout-end;
+    }
+  
+    .content {
+      grid-column: content;
+    }
+    .content-start {
+      grid-column-start: content-start;
+    }
+    .content-end {
+      grid-column-end: content-end;
+    }
+  
+    .narrow {
+      grid-column: narrow;
+    }
+    .narrow-start {
+      grid-column-start: narrow-start;
+    }
+    .narrow-end {
+      grid-column-end: narrow-end;
+    }
+  
+    .full-width {
+      grid-column: full;
+    }
+    .full-content,
+    .full-content-nopad {
+      grid-column: full;
+    }
+    .full-content {
+      padding-inline: var(--minimum-content-padding);
+    }
+  }
+  
+// RESET ========
+
+
+@layer reset {
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+  
+    html {
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      // color-scheme: light dark;
+
+
+      font-family: var(--font-family-base);
+      interpolate-size: allow-keywords;
+      
+    }
+  
+    body {
+      margin: 0;
+      min-height: 100vh;
+      line-height: var(--font-family-base-line-height);
+    }
+
+    header,
+    footer,
+    main,
+    section {
+      container-type: inline-size;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    label {
+      line-height: var(--font-family-heading-line-height);
+    }
+  
+    input,
+    button,
+    textarea,
+    select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+  
+    textarea:not([rows]) {
+      min-height: 10em;
+    }
+  
+    :is(ul, ol)[class] {
+      list-style: "";
+      margin: 0;
+      padding: 0;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4 {
+      text-wrap: balance;
+      font-family: var(--font-family-heading);
+    }
+  
+    p,
+    li,
+    figcaption {
+      max-width: var(--body-max-width);
+      text-wrap: pretty;
+    }
+  
+    code {
+      font-family: var(--font-family-code);
+    }
+  
+    :first-child {
+      margin-block-start: 0;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
+      margin-block-end: 0;
+    }
+  
+    img,
+    picture {
+      max-width: 100%;
+      display: block;
+    }
+  
+    img {
+      font-style: italic;
+      background-repeat: no-repeat;
+      background-size: cover;
+      shape-margin: 1rem;
+      height: auto;
+      vertical-align: middle;
+    }
+  
+    td,
+    math,
+    time[datetime*=":"] {
+      font-variant-numeric: tabular-nums lining-nums;
+    }
+  
+    table {
+      border-collapse: collapse;
+    }
+  
+    :target {
+      scroll-margin-block: 32px;
+      scroll-margin-block: 5rlh;
+    }
+  
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+  }
+
+ .login-header .header-background {
+  backdrop-filter: none !important;
+}
+.register-header .header-background {
+  backdrop-filter: none !important;
+}

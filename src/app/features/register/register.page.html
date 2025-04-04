@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border register-header" translucent="true">
+  <ion-toolbar color="transparent">
+    <ion-title>
+      <div class="flex">
+        <img src="assets/logo/logo.svg" alt="Roamer Logo" class="logo" />
+        <span class="title-sufix">egister</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="wrapper h-100">
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-input
+            type="text"
+            label="First Name"
+            labelPlacement="floating"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="text"
+            label="Last Name"
+            labelPlacement="floating"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="email"
+            label="Email"
+            labelPlacement="floating"
+            placeholder="valid@email.com"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" label="Password" labelPlacement="floating">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="password"
+            label="Confirm Password"
+            labelPlacement="floating"
+          >
+          </ion-input>
+        </ion-item>
+        <ion-button size="full" color="tertiary">Register</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<app-compass></app-compass>

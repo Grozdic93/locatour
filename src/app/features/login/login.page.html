@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border login-header" translucent="true">
+  <ion-toolbar color="transparent">
+    <ion-title>
+      <div class="flex">
+        <img src="assets/logo/logo.svg" alt="Roamer Logo" class="logo" />
+        <span class="title-sufix">oamer</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content  [fullscreen]="true">
+  <div class="wrapper h-100">
+    <ion-card>
+      <!--
+      <ion-card-header>
+        <ion-card-title color="tertiary">LocaTour</ion-card-title>
+      </ion-card-header>
+        -->
+      <ion-card-content>
+      
+        <ion-item>
+          <ion-input
+            type="email"
+            label="Email"
+            labelPlacement="floating"
+            placeholder="valid@email.com"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" label="Password" labelPlacement="floating">
+          </ion-input>
+        </ion-item>
+        <ion-button color="light" size="full" fill="clear"
+          >Forgot email/password</ion-button
+        >
+        <ion-button color="tertiary" size="full">Login</ion-button>
+        <ion-button color="tertiary" size="full" fill="clear"
+          >Register</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
+ 
+</ion-content>
+<app-compass></app-compass>

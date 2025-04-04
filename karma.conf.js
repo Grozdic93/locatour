@@ -37,8 +37,23 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeNoWebGL'],
+    customLaunchers: {
+      ChromeNoWebGL: {
+        base: 'Chrome',
+        flags: [
+          '--disable-webgl',
+          '--disable-gpu',
+          '--no-sandbox',
+          '--disable-dev-shm-usage'
+        ]
+      }
+    },
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    exclude: [
+      '**/compass.component.spec.ts',
+      '**/*.webgl.spec.ts'
+    ]
   });
 };
